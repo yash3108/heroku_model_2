@@ -10,7 +10,7 @@ def process_data(data):
     data = data.replace('[', '')
     data = data.replace(']', '')
     data = data.split(', ')
-#     lst = list(map(int, str))
+    lst = list(map(int, str))
 #     arr = np.array(lst)
 #     arr = arr.reshape(200, 200, 3)
 #     arr = arr.astype('uint8')
@@ -19,6 +19,7 @@ def process_data(data):
 #     image = np.array(image)
 #     image = image.astype('float32')/255.0
 #     image = image.reshape(-1, 64, 64, 3)
+    data = str(data)
     return data
 # load model
 model = load_model('ASL1.h5')
