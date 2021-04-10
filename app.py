@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 import pickle
 import cv2
 import numpy as np
-from tensoflow.keras.models import load_model
+from tensorflow.keras.models import load_model
 # from keras.models import load_model
 
 # load model
@@ -30,7 +30,7 @@ def predict():
 #     output = {'results': int(result[0])}
 
     # return data
-    return jsonify(data)
+    return jsonify(type(data))
 
 if __name__ == '__main__':
     app.run(port = 5000, debug=True)
