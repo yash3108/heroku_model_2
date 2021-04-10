@@ -6,6 +6,10 @@ import numpy as np
 from tensorflow import keras
 # from keras.models import load_model
 
+# load model
+my_model = keras.models.load_model("ASL1.h5")
+print('model loaded')
+    
 def process_data(data):
     data = data.replace('[', '')
     data = data.replace(']', '')
@@ -19,11 +23,6 @@ def process_data(data):
     image = np.array(image)
     image = image.astype('float32')/255.0
     image = image.reshape(-1, 64, 64, 3)
-    
-    
-    # load model
-    my_model = keras.models.load_model("ASL1.h5")
-    print('model loaded')
     
     result = my_model.predict(image)
     print('predicted successfully')
