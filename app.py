@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 import pickle
 import cv2
 import numpy as np
+from tensoflow.keras.models import load_model
 # from keras.models import load_model
 
 # load model
