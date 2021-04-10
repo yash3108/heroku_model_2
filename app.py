@@ -1,9 +1,9 @@
 import pandas as pd
 from flask import Flask, jsonify, request
 import pickle
-import cv2
-import numpy as np
-from keras import models
+# import cv2
+# import numpy as np
+# from keras import models
 
 # load model
 model = pickle.load(open('model.pkl','rb'))
