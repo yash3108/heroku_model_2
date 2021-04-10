@@ -30,7 +30,7 @@ def predict():
 #     output = {'results': int(result[0])}
 
     # return data
-    return jsonify(type(data))
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(port = 5000, debug=True)
