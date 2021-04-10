@@ -10,9 +10,17 @@ def process_data(data):
     data = data.replace('[', '')
     data = data.replace(']', '')
     data = data.split(', ')
-    return data
+    lst = list(map(int, str))
+    arr = np.array(lst)
+    arr = arr.reshape(200, 200, 3)
+    arr = arr.astype('uint8')
+    image = cv2.resize(arr, (64, 64))
+    image = np.array(image)
+    image = image.astype('float32')/255.0
+    image = image.reshape(-1, 64, 64, 3)
+    return image
 # load model
-model = pickle.load(open('model.pkl','rb'))
+model = load_model('ASL1.h5')
 
 # app
 app = Flask(__name__)
@@ -25,6 +33,8 @@ def predict():
     data = request.get_json(force=True)
     data = str(data)
     data = process_data(data)
+    
+    data = np.argmax(model.predict(image), axis=1)
 
 #     # convert data into dataframe
 #     data.update((x, [y]) for x, y in data.items())
@@ -37,7 +47,7 @@ def predict():
 #     output = {'results': int(result[0])}
 
     # return data
-    return jsonify(data)
+    return jsonify(data[0])
 
 if __name__ == '__main__':
     app.run(port = 5000, debug=True)
