@@ -14,11 +14,12 @@ def process_data(data):
     arr = np.array(lst)
     arr = arr.reshape(200, 200, 3)
     arr = arr.astype('uint8')
-    image = cv2.resize(arr, (64, 64))
-    image = np.array(image)
-    image = image.astype('float32')/255.0
-    image = image.reshape(-1, 64, 64, 3)
-    return image
+    arr = str(arr)
+#     image = cv2.resize(arr, (64, 64))
+#     image = np.array(image)
+#     image = image.astype('float32')/255.0
+#     image = image.reshape(-1, 64, 64, 3)
+    return arr
 # load model
 model = load_model('ASL1.h5')
 
@@ -34,7 +35,7 @@ def predict():
     data = str(data)
     data = process_data(data)
     
-    data = np.argmax(model.predict(image), axis=1)
+#     data = np.argmax(model.predict(image), axis=1)
 
 #     # convert data into dataframe
 #     data.update((x, [y]) for x, y in data.items())
