@@ -6,9 +6,6 @@ import numpy as np
 from tensorflow import keras
 # from keras.models import load_model
 
-# load model
-model = keras.models.load_model("ASL1.h5")
-
 def process_data(data):
     data = data.replace('[', '')
     data = data.replace(']', '')
@@ -22,7 +19,12 @@ def process_data(data):
     image = np.array(image)
     image = image.astype('float32')/255.0
     image = image.reshape(-1, 64, 64, 3)
-    result = model.predict(image)
+    
+    
+    # load model
+    my_model = keras.models.load_model("ASL1.h5")
+
+    result = my_model.predict(image)
     image = np.argmax(result, axis = 1))
     data = str(result)
     return data
