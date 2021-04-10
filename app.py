@@ -6,6 +6,9 @@ import numpy as np
 from tensorflow.keras.models import load_model
 # from keras.models import load_model
 
+# load model
+model = load_model('ASL1.h5')
+
 def process_data(data):
     data = data.replace('[', '')
     data = data.replace(']', '')
@@ -19,10 +22,9 @@ def process_data(data):
     image = np.array(image)
     image = image.astype('float32')/255.0
     image = image.reshape(-1, 64, 64, 3)
+    image = np.argmax(model.predict(image), axis = 1))
     data = str(image)
     return data
-# load model
-model = load_model('ASL1.h5')
 
 # app
 app = Flask(__name__)
