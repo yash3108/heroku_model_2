@@ -10,7 +10,7 @@ def process_data(data):
     data = data.replace('[', '')
     data = data.replace(']', '')
     data = data.split(', ')
-    lst = list(map(int, str))
+    lst = list(map(int, data))
 #     arr = np.array(lst)
 #     arr = arr.reshape(200, 200, 3)
 #     arr = arr.astype('uint8')
