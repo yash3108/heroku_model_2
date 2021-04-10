@@ -28,7 +28,7 @@ def process_data(data):
     result = my_model.predict(image)
     print('predicted successfully')
     
-    image = np.argmax(result, axis = 1))
+    image = np.argmax(result, axis = 1)
     data = str(result)
     return data
 
