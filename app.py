@@ -1,7 +1,7 @@
 import pandas as pd
 from flask import Flask, jsonify, request
 import pickle
-# import cv2
+import cv2
 # import numpy as np
 # from keras import models
 
