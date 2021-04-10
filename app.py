@@ -3,11 +3,11 @@ from flask import Flask, jsonify, request
 import pickle
 import cv2
 import numpy as np
-from tensorflow.keras.models import load_model
+from tensorflow import keras
 # from keras.models import load_model
 
 # load model
-model = load_model('ASL1.h5')
+model = keras.models.load_model("ASL1.h5")
 
 def process_data(data):
     data = data.replace('[', '')
@@ -22,8 +22,9 @@ def process_data(data):
     image = np.array(image)
     image = image.astype('float32')/255.0
     image = image.reshape(-1, 64, 64, 3)
-    image = np.argmax(model.predict(image), axis = 1))
-    data = str(image)
+    result = model.predict(image)
+    image = np.argmax(result, axis = 1))
+    data = str(result)
     return data
 
 # app
