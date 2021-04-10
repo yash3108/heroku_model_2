@@ -11,15 +11,15 @@ def process_data(data):
     data = data.replace(']', '')
     data = data.split(', ')
     lst = list(map(int, data))
-#     arr = np.array(lst)
-#     arr = arr.reshape(200, 200, 3)
-#     arr = arr.astype('uint8')
+    arr = np.array(lst)
+    arr = arr.reshape(200, 200, 3)
+    arr = arr.astype('uint8')
 #     arr = str(arr)
 #     image = cv2.resize(arr, (64, 64))
 #     image = np.array(image)
 #     image = image.astype('float32')/255.0
 #     image = image.reshape(-1, 64, 64, 3)
-    data = str(lst)
+    data = str(arr)
     return data
 # load model
 model = load_model('ASL1.h5')
