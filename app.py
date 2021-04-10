@@ -19,7 +19,7 @@ def process_data(data):
 #     image = np.array(image)
 #     image = image.astype('float32')/255.0
 #     image = image.reshape(-1, 64, 64, 3)
-    data = str(data)
+    data = str(lst)
     return data
 # load model
 model = load_model('ASL1.h5')
