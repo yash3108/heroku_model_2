@@ -6,6 +6,11 @@ import numpy as np
 from tensorflow.keras.models import load_model
 # from keras.models import load_model
 
+def process_data(data):
+    data = data.replace('[', '')
+    data = data.replace(']', '')
+    data = data.split(', ')
+    return data
 # load model
 model = pickle.load(open('model.pkl','rb'))
 
@@ -19,6 +24,7 @@ def predict():
     # get data
     data = request.get_json(force=True)
     data = str(data)
+    data = process_data(data)
 
 #     # convert data into dataframe
 #     data.update((x, [y]) for x, y in data.items())
