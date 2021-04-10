@@ -23,8 +23,11 @@ def process_data(data):
     
     # load model
     my_model = keras.models.load_model("ASL1.h5")
-
+    print('model loaded')
+    
     result = my_model.predict(image)
+    print('predicted successfully')
+    
     image = np.argmax(result, axis = 1))
     data = str(result)
     return data
